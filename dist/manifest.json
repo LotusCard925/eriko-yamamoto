@@ -1,7 +1,7 @@
 {
-  "name": "ラ・バンバ 薩摩タコス",
-  "short_name": "La Bamba Tacos",
-  "description": "ラ・バンバ薩摩タコスの店舗情報とメニュー",
+  "name": "山元 絵利子 | ピアノ講師・保育士",
+  "short_name": "Eriko",
+  "description": "山元 絵利子のピアノ教室・保育士プロフィール",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0b0d12",
@@ -9,24 +9,24 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "images/Hicoさんアイコン.png",
+      "src": "images/icon.eriko.jpg",
       "sizes": "1024x1024",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "images/Hicoさんアイコン.png",
+      "src": "images/icon.eriko.jpg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "images/Hicoさんアイコン.png",
+      "src": "images/icon.eriko.jpg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     }
   ],
-  "categories": ["food", "restaurant"],
+  "categories": ["education", "music"],
   "lang": "ja"
 }

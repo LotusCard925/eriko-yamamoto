@@ -121,6 +121,8 @@
             href="mailto:?subject=%E5%B1%B1%E5%85%83%20%E7%B5%B5%E5%88%A9%E5%AD%90%E3%81%AE%E9%80%A3%E7%B5%A1%E5%85%88&body=%E5%B1%B1%E5%85%83%20%E7%B5%B5%E5%88%A9%E5%AD%90%E3%81%AE%E9%80%A3%E7%B5%A1%E5%85%88%E3%81%A7%E3%81%99%E3%80%82%0A%0A---%0A%E5%90%8D%E5%89%8D%3A%20%E5%B1%B1%E5%85%83%20%E7%B5%B5%E5%88%A9%E5%AD%90%0AInstagram%3A%20https%3A%2F%2Fwww.instagram.com%2Fpiano_thanks%3Figsh%3DbTV0cG8zbGRsdTVk%0A---"
             class="modal-button"
           >メールを自分に送信</a>
+
+          <button id="add-to-home-screen-button" class="modal-button">ホーム画面に追加</button>
         </div>
         <button id="close-modal-button" class="modal-close-button">戻る</button>
       </div>
@@ -308,7 +310,7 @@
         const saveModal = document.getElementById('save-options-modal');
         const openSaveBtn = document.getElementById('open-save-modal-button');
         const closeSaveBtn = document.getElementById('close-modal-button');
-        // removed A2HS inside save modal
+        const addToHomeBtn2 = document.getElementById('add-to-home-screen-button');
         
         // Share functionality
         if (shareBtn) {
@@ -364,7 +366,13 @@
             }
           });
         }
-        // no-op: a2hs button removed as requested
+        if (addToHomeBtn2) {
+          addToHomeBtn2.addEventListener('click', () => {
+            const instructions = `ホーム画面に追加する手順\n\n【iPhone/iPadの場合】\n1. Safariでサイトを開く\n2. 共有アイコンをタップ\n3. 「ホーム画面に追加」\n4. 「追加」をタップ\n\n【Android(Chrome)の場合】\n1. Chromeでサイトを開く\n2. 右上の「⋮」メニュー\n3. 「ホーム画面に追加」\n4. 案内に従って追加`;
+            alert(instructions);
+            if (saveModal) { saveModal.style.display = 'none'; document.body.style.overflow = ''; }
+          });
+        }
         
         // Close modal
         if (modalClose) {

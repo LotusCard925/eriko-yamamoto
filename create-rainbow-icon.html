@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Icon Generator</title>
+</head>
+<body>
+    <canvas id="canvas" width="512" height="512" style="border: 1px solid #ccc;"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Rainbow gradient background
+        const gradient = ctx.createLinearGradient(0, 0, 512, 512);
+        gradient.addColorStop(0, '#ff0000');    // Red
+        gradient.addColorStop(0.16, '#ff8000'); // Orange
+        gradient.addColorStop(0.33, '#ffff00'); // Yellow
+        gradient.addColorStop(0.5, '#00ff00');  // Green
+        gradient.addColorStop(0.66, '#0080ff'); // Blue
+        gradient.addColorStop(0.83, '#8000ff'); // Indigo
+        gradient.addColorStop(1, '#ff00ff');    // Violet
+        
+        // Fill background with rainbow
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 512, 512);
+        
+        // Add white text "Eriko"
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 120px Arial, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('Eriko', 256, 256);
+        
+        // Add download link
+        const link = document.createElement('a');
+        link.download = 'eriko-rainbow-icon.png';
+        link.href = canvas.toDataURL();
+        link.textContent = 'Download Rainbow Icon';
+        document.body.appendChild(link);
+    </script>
+</body>
+</html>
