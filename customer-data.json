@@ -2,20 +2,29 @@
   "sns": [
     {
       "label": "Instagram",
-      "url": "https://www.instagram.com/aview_kagoshima?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "url": "https://www.instagram.com/piano_thanks?igsh=bTV0cG8zbGRsdTVk",
       "icon": "icon_instagram.svg"
+    },
+    {
+      "label": "LINE",
+      "url": "https://line.me/ti/p/IYA--sQ0c8",
+      "icon": "icon_line.svg"
     }
   ],
-  "shop_name": "aview_kagoshima",
-  "shop_bio": "月~金11:00~19:00 、土日祝10:45~19:00。無休。お問合せはDM・お電話にて<br>（ご対応は<span class=\"hours-label\">営業時間</span><span class=\"hours-times\">内となります）<br>駐車場は近隣のコインパーキングをご利用ください</span>",
-  "shop_address": "892-0846 加治屋町2-21 大宮ビル1F, Kagoshima, Kagoshima",
-  "profile_image_url": "images/aview_kagoshima_profile_image.jpg",
-  "background_image_url": "images/aview_kagoshima_background_image.png",
-  "page_title": "aview_kagoshima",
-  "share_title": "aview_kagoshima",
-  "share_text": "月~金11:00~19:00 、土日祝10:45~19:00。無休。お問合せはDM・お電話にて",
-  "footer_text": "aview_kagoshima",
-  "shop_address_url": "https://www.google.com/maps/search/?api=1&query=892-0846%20%E5%8A%A0%E6%B2%BB%E5%B1%8B%E7%94%BA2-21%20%E5%A4%A7%E5%AE%AE%E3%83%93%E3%83%AB1F%2C%20Kagoshima%2C%20Kagoshima",
-  "apple_app_title": "aview_kagoshima",
-  "apple_touch_icon": "images/aview_kagoshima_profile_image.jpg"
+  "shop_name": "山元 絵利子 / YAMAMOTO ERIKO",
+  "shop_bio": "★現役保育士（幼稚園教諭2級所持）<br>★某小学校 特別支援学級勤務<br>★ピアノ講師 平成23年開始 3歳からシニアまで<br>ジャンル：基本曲、クラシック、ポップ曲、ハノン、ブルグミュラー、ギロック、ソナチネ、ソナタ<br>★個人・個性に合わせ『楽しい』をモットーに♥️<br>（発達障害・引きこもりの子どもたちにも対応）<br>★茶道2級所持／★華道2級所持／★着付け2級所持<br><br>★家族構成<br>夫→会社員<br>長男→18歳でアメリカの語学学校→アメリカの大学→企業<br>次男→高校1年生(夏休み: 広島の阿波踊り参加、富士山登山)<br><br>★人生楽しく、人生を豊かに／ありのままの自分",
+  "shop_address": "",
+  "shop_address_url": "",
+  "profile_image_url": "images/icon.eriko.jpg",
+  "background_image_url": "images/background.jpeg",
+  "page_title": "山元 絵利子 | ピアノ講師・保育士",
+  "share_title": "山元 絵利子 | ピアノ講師・保育士",
+  "share_text": "個性に合わせて楽しく学ぶピアノレッスン。保育士としての視点も",
+  "footer_text": "YAMAMOTO ERIKO",
+  "apple_app_title": "YAMAMOTO ERIKO",
+  "apple_touch_icon": "images/icon.eriko.jpg",
+  "gallery_images": [
+    "images/bottom.picture.jpeg",
+    "images/bottom.picture2.jpeg"
+  ]
 }

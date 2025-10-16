@@ -7,7 +7,7 @@
     <title>{{ page_title }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
       .hero {
@@ -34,7 +34,7 @@
       <p class="identity-title">{{ shop_name }}</p>
       <p class="identity-address">
         <a href="{{ shop_address_url }}" target="_blank" rel="noopener" class="address-link">
-          📍 {{ shop_address }}
+          {{ shop_address }}
         </a>
       </p>
         <p class="identity-subtitle">{{ shop_bio }}</p>
@@ -48,8 +48,8 @@
           <button class="action-btn share-btn" aria-label="共有">
             <span class="action-text">共有</span>
           </button>
-          <button class="action-btn install-btn" aria-label="ホーム画面に追加">
-            <span class="action-text">ホーム画面に追加</span>
+          <button class="action-btn save-btn" id="open-save-modal-button" aria-label="情報の保存">
+            <span class="action-text">情報の保存</span>
           </button>
         </div>
       </section>
@@ -95,6 +95,26 @@
     <footer class="footer">
       <small>© <span id="year"></span> {{ footer_text }}</small>
     </footer>
+
+    <!-- Save Options Modal -->
+    <div id="save-options-modal" class="modal-overlay" style="display:none;">
+      <div class="modal-content">
+        <p class="modal-title">保存方法を選択</p>
+        <div class="modal-actions">
+          <a
+            href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:%E5%B1%B1%E5%85%83%20%E7%B5%B5%E5%88%A9%E5%AD%90%0AORG:%E3%83%94%E3%82%A2%E3%83%8E%E8%AC%9B%E5%B8%AB%E3%83%BB%E4%BF%9D%E8%82%B2%E5%A3%AB%0ATITLE:%E3%83%94%E3%82%A2%E3%83%8E%E8%AC%9B%E5%B8%AB%E3%83%BB%E4%BF%9D%E8%82%B2%E5%A3%AB%0AURL:https%3A%2F%2Fwww.instagram.com%2Fpiano_thanks%3Figsh%3DbTV0cG8zbGRsdTVk%0ANOTE:%E5%B1%B1%E5%85%83%20%E7%B5%B5%E5%88%A9%E5%AD%90%20%7C%20%E3%83%94%E3%82%A2%E3%83%8E%E8%AC%9B%E5%B8%AB%E3%83%BB%E4%BF%9D%E8%82%B2%E5%A3%AB%0AEND:VCARD"
+            download="山元絵利子.vcf"
+            class="modal-button"
+          >連絡先に保存</a>
+
+          <a
+            href="mailto:?subject=%E5%B1%B1%E5%85%83%20%E7%B5%B5%E5%88%A9%E5%AD%90%E3%81%AE%E9%80%A3%E7%B5%A1%E5%85%88&body=%E5%B1%B1%E5%85%83%20%E7%B5%B5%E5%88%A9%E5%AD%90%E3%81%AE%E9%80%A3%E7%B5%A1%E5%85%88%E3%81%A7%E3%81%99%E3%80%82%0A%0A---%0A%E5%90%8D%E5%89%8D%3A%20%E5%B1%B1%E5%85%83%20%E7%B5%B5%E5%88%A9%E5%AD%90%0AInstagram%3A%20https%3A%2F%2Fwww.instagram.com%2Fpiano_thanks%3Figsh%3DbTV0cG8zbGRsdTVk%0A---"
+            class="modal-button"
+          >メールを自分に送信</a>
+        </div>
+        <button id="close-modal-button" class="modal-close-button">戻る</button>
+      </div>
+    </div>
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear()
@@ -274,6 +294,11 @@
         const installBtn = document.querySelector('.install-btn');
         const installModal = document.getElementById('install-modal');
         const modalClose = document.querySelector('.modal-close');
+        // Save modal elements
+        const saveModal = document.getElementById('save-options-modal');
+        const openSaveBtn = document.getElementById('open-save-modal-button');
+        const closeSaveBtn = document.getElementById('close-modal-button');
+        // removed A2HS inside save modal
         
         // Share functionality
         if (shareBtn) {
@@ -306,6 +331,30 @@
             document.body.style.overflow = 'hidden';
           });
         }
+
+        // Open save modal
+        if (openSaveBtn && saveModal) {
+          openSaveBtn.addEventListener('click', () => {
+            saveModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          });
+        }
+        // Close save modal
+        if (closeSaveBtn && saveModal) {
+          closeSaveBtn.addEventListener('click', () => {
+            saveModal.style.display = 'none';
+            document.body.style.overflow = '';
+          });
+        }
+        if (saveModal) {
+          saveModal.addEventListener('click', (e) => {
+            if (e.target === saveModal) {
+              saveModal.style.display = 'none';
+              document.body.style.overflow = '';
+            }
+          });
+        }
+        // no-op: a2hs button removed as requested
         
         // Close modal
         if (modalClose) {
@@ -328,4 +377,5 @@
     </script>
   <!-- Lightbox overlay container is injected by script -->
   </body>
+</html>
 </html>

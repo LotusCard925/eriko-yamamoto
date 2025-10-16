@@ -11,11 +11,12 @@
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; }
+html, body { height: 100%; overflow-x: hidden; }
+html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  background: radial-gradient(1200px 800px at 50% -10%, #141a24 0%, var(--bg) 55%) no-repeat fixed;
+  background: url('images/eriko.background.png') center/cover no-repeat fixed;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,8 +36,10 @@ body {
   border-radius: 24px;
 }
 .hero-inner {
-  display: flex;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: end;
   gap: 16px;
   padding: 0 var(--page-pad);
   min-height: 200px;
@@ -50,6 +53,7 @@ body {
   border: 3px solid rgba(255,255,255,.85);
   box-shadow: 0 8px 30px rgba(0,0,0,.45);
   background: #111;
+  justify-self: center;
 }
 .identity-block {
   max-width: var(--page-max);
@@ -57,25 +61,71 @@ body {
   margin: 0 auto;
   text-align: left;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
+  justify-items: center;
   gap: 16px;
   padding: 16px var(--page-pad) 8px;
 }
 .identity-block .identity-name,
 .identity-block .identity-title,
 .identity-block .identity-subtitle { text-align: left; }
-.identity-info { display: grid; justify-items: start; grid-column: 1 / -1; }
+.identity-info { display: grid; justify-items: center; grid-column: 1 / -1; width: 100%; }
 .identity-name {
   margin: 0;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 800;
   letter-spacing: .2px;
+  font-family: 'M PLUS Rounded 1c', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: rgba(255,255,255,.9);
+  color: #111111;
+  padding: 12px 16px;
+  border-radius: 14px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
 }
 .identity-name .latin { margin-left: 8px; font-weight: 600; opacity: .9; }
-.identity-title { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+.identity-title {
+  margin: 4px 0 0;
+  font-size: 22px;
+  font-weight: 800;
+  font-family: 'M PLUS Rounded 1c', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: rgba(255,255,255,.9);
+  color: #111111;
+  padding: 12px 16px;
+  border-radius: 16px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+}
 .identity-address { margin: 6px 0 0; }
 .identity-subtitle { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+/* Improve readability of the profile text over bright backgrounds */
+.identity-subtitle {
+  background: rgba(255,255,255,.9);
+  color: #111111;
+  padding: 12px 16px;
+  border-radius: 14px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+}
 
 .address-link {
   color: var(--accent);
@@ -105,6 +155,10 @@ body {
   display: block;
   text-align: center;
   padding: 28px var(--page-pad) 24px;
+  max-width: var(--page-max);
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 main.card { flex: 1 0 auto; }
@@ -203,7 +257,7 @@ main.card { flex: 1 0 auto; }
   width: 80px;
   height: 80px;
   border-radius: 14px;
-  background: #ffffff;
+  background: rgba(255,255,255,.9);
   border: 1px solid rgba(255,255,255,.12);
   color: #111827;
   text-decoration: none;
@@ -251,6 +305,26 @@ main.card { flex: 1 0 auto; }
   justify-content: center;
   z-index: 2000;
   padding: 20px;
+}
+
+/* Save modal overlay (minimal, avoids conflicts) */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.8);
+  display: none; align-items: center; justify-content: center; z-index: 2100; padding: 20px;
+}
+.modal-overlay .modal-content {
+  background: #ffffff; color: #333; border-radius: 16px; max-width: 420px; width: 100%;
+  max-height: 80vh; overflow: auto; padding: 24px; text-align: center;
+}
+.modal-title { font-size: 18px; font-weight: 600; margin: 0 0 16px; color: #111; }
+.modal-actions { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+.modal-button {
+  display: block; width: 100%; padding: 14px 20px; background: #007aff; color: #fff;
+  text-decoration: none; border: 0; border-radius: 12px; font-weight: 700; font-size: 16px;
+}
+.modal-button:hover { background: #0056cc; }
+.modal-close-button {
+  width: 100%; padding: 12px; background: #f5f5f5; color: #666; border: 0; border-radius: 12px; font-weight: 600;
 }
 
 .modal-content {
@@ -397,7 +471,10 @@ main.card { flex: 1 0 auto; }
     text-align: left; 
     row-gap: 8px; 
   }
-  .identity-info { justify-items: start; grid-column: 1 / -1; width: 100%; }
+  .identity-info { justify-items: center; grid-column: 1 / -1; width: 100%; }
+  .identity-name { font-size: 28px; }
+  .identity-title { font-size: 20px; }
+  .identity-name, .identity-title, .identity-subtitle { width: 100%; max-width: 100%; box-sizing: border-box; overflow-wrap: anywhere; }
   .identity-block .identity-name,
   .identity-block .identity-title,
   .identity-block .identity-subtitle { text-align: left; }
@@ -408,8 +485,8 @@ main.card { flex: 1 0 auto; }
 
 @media (min-width: 480px) {
   .hero-inner { padding: 32px 24px; min-height: 200px; }
-  .identity-name { font-size: 20px; }
-  .identity-title { font-size: 15px; }
+  .identity-name { font-size: 48px; }
+  .identity-title { font-size: 32px; }
   .hero-avatar { width: 280px; height: 280px; }
   .name { font-size: 24px; }
 }
@@ -422,3 +499,8 @@ main.card { flex: 1 0 auto; }
 @media (max-width: 480px) {
   .hero-avatar { justify-self: center; margin-left: auto; margin-right: auto; }
 }
+
+/* Center the displayed name */
+.identity-block .identity-title { text-align: center; }
+.identity-name { text-align: center; }
+.identity-info { justify-items: center; width: 100%; }
