@@ -1,0 +1,16 @@
+{
+  "name": "eriko-yamamoto-profile",
+  "version": "1.0.0",
+  "description": "山元絵利子のプロフィールサイト",
+  "main": "generate-site.js",
+  "scripts": {
+    "build": "node generate-site.js",
+    "start": "node generate-site.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["profile", "piano", "teacher"],
+  "author": "Eriko Yamamoto",
+  "license": "MIT"
+}

@@ -1,0 +1,6 @@
+{
+  "buildCommand": "node generate-site.js",
+  "outputDirectory": "dist",
+  "installCommand": "echo 'No dependencies to install'",
+  "framework": null
+}

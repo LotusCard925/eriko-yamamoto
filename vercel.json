@@ -1,0 +1,11 @@
+{
+  "buildCommand": "node generate-site.js",
+  "outputDirectory": "dist",
+  "public": true,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
