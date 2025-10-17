@@ -1,11 +1,11 @@
 {
-  "buildCommand": "node generate-site.js",
-  "outputDirectory": "dist",
-  "public": true,
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+  "version": 2,
+  "buildCommand": "npm run build",
+  "builds": [
+    { "src": "dist/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/dist/$1" }
   ]
 }
